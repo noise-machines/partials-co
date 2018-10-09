@@ -107,6 +107,8 @@ class MousePosition extends React.Component {
       x: 0,
       y: 0
     }
+  }
+  componentDidMount () {
     document.onmousemove = e => {
       const x = e.clientX / window.innerWidth
       const y = e.clientY / window.innerHeight
