@@ -1,47 +1,28 @@
 import { h } from 'preact' /** @jsx h */
-import Router from 'preact-router'
-import Match from 'preact-router/match'
+import './index.css'
+import tssAlbumArtSource from '../tss.png'
+// import Router from 'preact-router'
 
-import Header from './Header'
-import Footer from './Footer'
+// const routes = (
+//   <Router>
+//     <Home path='/' />
+//   </Router>
+// )
 
-import Home from './Home'
-import Contact from './Contact'
-import Kaleidoscope from './Kaleidoscope'
-import Shows from './Shows'
-import Press from './Press'
-
-const routes = (
-  <Router>
-    <Home path="/" />
-    <Contact path="/contact" />
-    <Shows path="/shows" />
-    <Press path="/press" />
-  </Router>
-)
-
-const renderContent = currentRoute => {
-  const atHome = currentRoute.matches
-  let hideContent = ''
-  let content = routes
-  if (atHome) {
-    hideContent = 'hide'
-  }
-  return (
-    <div>
-      <div class={`content full-width ${hideContent}`}>{content}</div>
-      <Footer />
-    </div>
-  )
+const albumArtStyle = {
+  backgroundImage: `url(${tssAlbumArtSource})`
 }
 
 const App = () => {
-  const content = <Match path="/">{renderContent}</Match>
   return (
-    <div>
-      <Header />
-      <Kaleidoscope />
-      {content}
+    <div className='album-art' style={albumArtStyle}>
+      <div className='border' />
+      <div className='text-container'>
+        <h2>Partials</h2>
+        <a href='https://www.notion.so/partials/Time-Stands-Still-a52aff6f2c8b4b7b8a4c75c5189c01a4'>
+          <h1>Time Stands Still</h1>
+        </a>
+      </div>
     </div>
   )
 }
